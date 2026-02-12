@@ -39,19 +39,12 @@ html, body {
     0 0 15px rgba(255,215,0,0.6),
     0 0 40px rgba(255,165,0,0.4);
 
-  animation:
-    shine 8s linear infinite,
-    breathe 6s ease-in-out infinite;
+  animation: shine 8s linear infinite;
 }
 
 @keyframes shine {
   0% { background-position: 0% }
   100% { background-position: 300% }
-}
-
-@keyframes breathe {
-  0%,100% { transform: scale(1) }
-  50% { transform: scale(1.04) }
 }
 </style>
 </head>
