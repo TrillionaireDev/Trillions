@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>What It Takes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  width:100vw;
+  background:#000;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  font-family:'Orbitron', sans-serif;
+  padding-top:5vh;
+}
+
+/* MAIN TITLE */
+.text{
+  font-size:14vw;
+  font-weight:900;
+  text-transform:uppercase;
+  text-align:center;
+  color:white;
+  letter-spacing:3px;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #0ff,
+    0 0 15px #f0f;
+  line-height:1;
+  animation: glowPulse 2.5s ease-in-out infinite alternate;
+  margin-bottom:5vh;
+}
+
+@keyframes glowPulse{
+  0%{ text-shadow:0 0 5px #fff,0 0 10px #0ff,0 0 15px #f0f;}
+  50%{ text-shadow:0 0 10px #fff,0 0 20px #0ff,0 0 35px #f0f;}
+  100%{ text-shadow:0 0 5px #fff,0 0 10px #0ff,0 0 15px #f0f;}
+}
+
+/* BULLETS */
+.bullets{
+  font-size:7vw;
+  font-weight:900;
+  color:white;
+  text-align:center;
+  line-height:1.5;
+  text-shadow:
+    0 0 6px #fff,
+    0 0 18px #0ff,
+    0 0 30px #f0f;
+}
+</style>
+</head>
+
+<body>
+
+<div class="text">What It Takes</div>
+
+<div class="bullets">
+  <div>• An Idea</div>
+  <div>• A Plan</div>
+  <div>• Self-Belief</div>
+  <div>• Being Alive</div>
+  <div>• Studying</div>
+  <div>• Time</div>
+</div>
+
+</body>
+</html>
