@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DFI Portal</title>
+<title>Trillionaire Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 html, body {
@@ -11,51 +13,50 @@ html, body {
   padding: 0;
   height: 100%;
   background: #000;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: white;
-  overflow: hidden;
-}
-
-/* Layout */
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-/* Top Navigation (VERTICAL NOW) */
-.nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 18px 0;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  justify-content: center;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
 }
 
-.button {
-  padding: 10px 24px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.25s ease;
-  min-width: 160px;
-  text-align: center;
+/* Trillionaire Word */
+.word {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(60px, 8vw, 140px);
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+
+  background: linear-gradient(
+    90deg,
+    #6b4b00,
+    #ffd700,
+    #fff8dc,
+    #ffd700,
+    #6b4b00
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 15px rgba(255,215,0,0.6),
+    0 0 40px rgba(255,165,0,0.4);
+
+  animation: shine 8s linear infinite;
 }
 
-.button:hover {
-  background: rgba(255,255,255,0.14);
-  transform: translateY(-2px);
+@keyframes shine {
+  0% { background-position: 0% }
+  100% { background-position: 300% }
 }
 
-/* Iframe */
-.frame-wrapper {
-  flex: 1;
-  position: relative;
+/* Math Section */
+.math-container {
+  width: 100%;
+  max-width: 900px;
+  height: 45vh;
 }
 
 iframe {
@@ -69,25 +70,11 @@ iframe {
 
 <body>
 
-<div class="container">
+<div class="word">Trillionaire</div>
 
-  <div class="nav">
-    <div class="button" onclick="loadPage('trillionaire.html')">Trillionaire</div>
-    <div class="button" onclick="loadPage('math.html')">Math</div>
-    <div class="button" onclick="loadPage('coin.html')">Coin</div>
-  </div>
-
-  <div class="frame-wrapper">
-    <iframe id="mainFrame" src="trillionaire.html"></iframe>
-  </div>
-
+<div class="math-container">
+  <iframe src="math.html"></iframe>
 </div>
-
-<script>
-function loadPage(page) {
-  document.getElementById("mainFrame").src = page;
-}
-</script>
 
 </body>
 </html>
