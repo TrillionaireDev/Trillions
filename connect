@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solana Wallet Connect</title>
+
+<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui;
+  color: white;
+}
+
+.card {
+  background: #111;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(153,69,255,0.4);
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(90deg,#9945FF,#14F195);
+  color: black;
+  margin-top: 20px;
+}
+
+.info {
+  margin-top: 15px;
+  font-size: 14px;
+  word-break: break-all;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Connect Solana Wallet</h2>
+  <button onclick="connectWallet()">Connect Phantom</button>
+
+  <div class="info" id="address"></div>
+  <div class="info" id="balance"></div>
+</div>
+
+<script>
+const { Connection, PublicKey, clusterApiUrl } = solanaWeb3;
+const connection = new Connection(clusterApiUrl("mainnet-beta"));
+
+async function connectWallet() {
+  if (!window.solana || !window.solana.isPhantom) {
+    alert("Phantom Wallet not found.");
+    return;
+  }
+
+  try {
+    const resp = await window.solana.connect();
+    const publicKey = resp.publicKey.toString();
+
+    document.getElementById("address").textContent = "Address: " + publicKey;
+
+    const balanceLamports = await connection.getBalance(new PublicKey(publicKey));
+    const balanceSOL = balanceLamports / 1e9;
+
+    document.getElementById("balance").textContent =
+      "Balance: " + balanceSOL.toFixed(4) + " SOL";
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+</script>
+
+</body>
+</html>
