@@ -69,13 +69,15 @@ iframe {
 <div class="container">
 
   <div class="nav">
+    <!-- Trillionaire first -->
+    <div class="button" onclick="loadPage('trillionaire.html')">Trillionaire</div>
     <div class="button" onclick="loadPage('coin.html')">Coin</div>
     <div class="button" onclick="loadPage('math.html')">Math</div>
-    <div class="button" onclick="loadPage('trillionaire.html')">Trillionaire</div>
   </div>
 
   <div class="frame-wrapper">
-    <iframe id="mainFrame" src="coin.html"></iframe>
+    <!-- Default load = Trillionaire -->
+    <iframe id="mainFrame" src="trillionaire.html"></iframe>
   </div>
 
 </div>
