@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>1 Trillion Static</title>
+
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial Black, system-ui, sans-serif;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.counter-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dark depth layer */
+.counter-shadow {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  color: #063d2a;
+  z-index: 1;
+}
+
+/* Sharp metallic */
+.metal {
+  background: linear-gradient(
+    90deg,
+    #ffd700,
+    #00ff88,
+    #ffffff,
+    #00ff88,
+    #ffd700
+  );
+  background-size: 200% 100%;
+  animation: gradientMove 2.5s linear infinite;
+
+  -webkit-background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 1px rgba(0,0,0,0.8);
+}
+
+.counter {
+  position: relative;
+  z-index: 2;
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+/* Breakdown under counter */
+.breakdown {
+  margin-top: 60px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.breakdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breakdown li {
+  margin: 10px 0;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="counter-wrap">
+    <div class="counter-shadow">
+      1,000,000,000,000
+    </div>
+
+    <div class="counter metal">
+      1,000,000,000,000
+    </div>
+  </div>
+
+  <div class="breakdown metal">
+    <ul>
+      <li>- 1 trillion (10<sup>12</sup>)</li>
+      <li>- 1 million million</li>
+      <li>- 1 thousand billion</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
